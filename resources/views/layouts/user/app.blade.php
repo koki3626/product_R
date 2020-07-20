@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -41,11 +41,11 @@
                         <!-- Authentication Links -->
                         @unless (Auth::guard('user')->check())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('user.login') }}">{{ __('ログイン') }}</a>
                             </li>
                             @if (Route::has('user.register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('user.register') }}">{{ __('会員登録') }}</a>
                                 </li>
                             @endif
                         @else

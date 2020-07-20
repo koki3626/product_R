@@ -65,15 +65,15 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Route::has('user.login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('user/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('user.login') }}">{{ __('ログイン') }}</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                        @if (Route::has('user.register'))
+                            <a href="{{ route('user.register') }}">{{ __('会員登録') }}</a>
                         @endif
                     @endauth
                 </div>

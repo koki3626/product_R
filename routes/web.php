@@ -30,7 +30,12 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
         // TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);
-
+        Route::get('post/create', 'PostController@add'); //追加
+        Route::post('post/create', 'PostController@create'); //追加
+        Route::get('post', 'PostController@index'); //追加
+        Route::get('post/edit', 'PostController@edit'); //追加
+        Route::post('post/edit', 'PostController@update'); //追加
+        Route::post('post/delete', 'PostController@delete'); //追加
     });
 });
 
@@ -54,6 +59,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 });

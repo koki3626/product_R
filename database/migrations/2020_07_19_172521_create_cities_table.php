@@ -14,21 +14,21 @@ class CreateCitiesTable extends Migration
     public function up()
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('prefecture_id');
-            $table->string('city_code')->comment('市区町村コード');
-            $table->string('name')->comment('市区町村名');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            // $table->increments('id');
+            // $table->unsignedInteger('prefecture_id');
+            // $table->string('city_code')->comment('市区町村コード');
+            // $table->string('name')->comment('市区町村名');
+            // $table->timestamp('created_at')->nullable();
+            // $table->timestamp('updated_at')->nullable();
 
-            $table->index('prefecture_id');
-            $table->index('name');
+            // $table->index('prefecture_id');
+            // $table->index('name');
 
-            $table->foreign('prefecture_id')
-            ->references('id')
-            ->on('prefectures')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
+            // $table->foreign('prefecture_id')
+            // ->references('id')
+            // ->on('prefectures')
+            // ->onDelete('cascade')
+            // ->onUpdate('cascade');
         });
     }
 
