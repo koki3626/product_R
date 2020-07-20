@@ -57,8 +57,27 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
     });
 
+});
 // Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+// ロケーション管理者
+Route::namespace('Location')->prefix('location')->name('location.')->group(function () {
+
+    // ログイン認証関連
+    Auth::routes([
+        'register' => true,
+        'reset'    => false,
+        'verify'   => false
+    ]);
+
+    // ログイン認証後
+    Route::middleware('auth:location')->group(function () {
+
+        // TOPページ
+        Route::resource('home', 'HomeController', ['only' => 'index']);
+
+    });
 
 });

@@ -16,6 +16,8 @@ class Authenticate extends Middleware
 
     protected $user_route  = 'user.login';
     protected $admin_route = 'admin.login';
+    protected $location_route = 'location.login';
+
 
     protected function redirectTo($request)
     {
@@ -24,6 +26,8 @@ class Authenticate extends Middleware
                 return route($this->user_route);
             } elseif (Route::is('admin.*')) {
                 return route($this->admin_route);
+            } elseif (Route::is('location.*')) {
+                return route($this->location_route);
             }
         }
     }

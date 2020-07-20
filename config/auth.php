@@ -47,6 +47,12 @@ return [
             'provider' => 'admins',
         ],
 
+        // Location用の認証を追加
+        'location' => [
+            'driver' => 'session',
+            'provider' => 'locations',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -81,7 +87,13 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
-        ]
+        ],
+
+        //Location追加
+        'locations' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Location::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -115,6 +127,14 @@ return [
         //Admin追加
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+         //Location追加
+         'locations' => [
+            'provider' => 'locations',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

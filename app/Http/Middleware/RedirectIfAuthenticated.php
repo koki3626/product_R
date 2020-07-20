@@ -22,9 +22,10 @@ class RedirectIfAuthenticated
             return redirect('user/home');
         } elseif (Auth::guard($guard)->check() && $guard === 'admin') {
             return redirect('admin/home');
-        }
+        } elseif (Auth::guard($guard)->check() && $guard === 'location') {
+            return redirect('location/home');
+        } 
 
         return $next($request);
     }
 }
-

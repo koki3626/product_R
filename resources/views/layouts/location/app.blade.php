@@ -39,13 +39,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @unless (Auth::guard('admin')->check())
+                        @unless (Auth::guard('location')->check())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('location.login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('admin.register'))
+                            @if (Route::has('location.register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('location.register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -55,13 +55,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('admin.logout') }}"
+                                    <a class="dropdown-item" href="{{ route('location.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('location.logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
